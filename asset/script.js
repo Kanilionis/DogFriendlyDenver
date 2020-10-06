@@ -1,28 +1,52 @@
 
+//_____________________________________________________________________________________________
+//GLOBAL VARIABLES
 
- var queryDogBreed = "https://dog.ceo/api/breed/hound/images"
+var questionArray = [ //object to store our questions and choices
+
+    { 
+    question: "Please select your favorite color:",
+    btnChoices: ["Pink Button","Red Button", "Green Button", "Blue Button"],
+    },
+        
+    {
+    question: "Please select a favorite food:",
+    btnChoices: ["Pizza", "","A collection of data", "A boolean"],
+    },
+            
+    {
+    question: "Please select your favorite time of year:",
+    btnChoices: ["Summer", "Fall", "Winter", "Spring"],
+    },
+            
+    {
+    question: "Please select your favorite type of music:",
+    btnChoices: ["Country", "Rock & Roll", "Classical", "Hip Hop"],
+    },
+        
+]
+
+
+//_____________________________________________________________________________________________
+//AJAX DOG API
+
+// link to dog API
+ var queryDogBreed = "https://dog.ceo/api/breed/hound/images";
 
  $.ajax({
-     url: queryDogBreed,
+     url: queryDogBreed, 
      method: "GET"
  })
- .then(function(response) {     //store data inside object "response"
- console.log(response)
-
- console.log(response.message[0.0]);
+ .then(function(response) { 
+ 
+  console.log(response)
 
  var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
-
- 
-
- //var pic = response.message[0.0];
 
  $("#picture").append(img)
 
 
 });
-
-
 
 
 
