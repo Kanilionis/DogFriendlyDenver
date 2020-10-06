@@ -2,7 +2,7 @@
 //_____________________________________________________________________________________________
 //GLOBAL VARIABLES
 
-var questions = [ //object to store our questions and choices
+var questionsArray = [ //object to store our questionsArray and choices
 
     { 
     question: "Please select your favorite color:",
@@ -26,7 +26,7 @@ var questions = [ //object to store our questions and choices
         
 ];
 
-var explinations = [
+var explinationsArray = [
     "Explination One Here",
     "Explination Two Here",
     "Explination Three Here",
@@ -34,6 +34,8 @@ var explinations = [
     "Explination Five Here",
     "Explination Six Here"
 ]
+
+var questionIndex = 0;
 
 //_____________________________________________________________________________________________
 //AJAX DOG
@@ -49,8 +51,8 @@ var explinations = [
  
     console.log(response) //store object to access information in console
 
-    var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
-    $("#picture").append(img);
+    // var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
+    // $("#picture").append(img);
 
 });
 
@@ -69,8 +71,8 @@ $.ajax({
 
     console.log(response) //store object to access information in console
 
-    var img = $("<img>").attr("src", response[0].url).append("#picture");
-    $("#picture").append(img);
+    // var img = $("<img>").attr("src", response[0].url).append("#picture");
+    // $("#picture").append(img);
 
 });
 
@@ -86,11 +88,31 @@ function startQuiz() {
 
 };
 
-function questions() {
+// function questionsArray() {
     // once start button is pressed the start screen will disappear and the user will see first quesiton
-    // question 1: choose your favorite color
-        // present user with different buttons with color options
+    //$("#testBtn").on("click", function() {
+       
+        var displayQuestion = $("<h3>").append("body");
+        //text(questionsArray[questionIndex].question)
+        //displayQuestion.append("body");
+
+        console.log(displayQuestion);
+
+        //  for (var i=0; i < questionsArray.length; i++) {
+        //     var displayQuestion = $("<h2>").text(questionsArray[i])
+        //     displayQuestion.append("#h2");
+        //     console.log(questionsArray[i]);
+
+        //  }
+
+        //user prompted with question 1
+        //present user with different buttons with color options
         //user clicks button and moves on to quesion 2
+
+   // });
+    
+
+    
     
     // question 2: pick a favorite food
         //present user with different bottons with food options
@@ -104,9 +126,9 @@ function questions() {
         //present user with different types of music 
         //user clicks button and moves on to the results
 
-};
+// };
 
-function quizEnd() {
+function endQuiz() {
     // quiz is hidden from user and the results are presented on the screen
         //link to API will provide variable information that the user provided if they like cats or dogs more
         //reference the response object to ge the random photo 
