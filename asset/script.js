@@ -1,4 +1,29 @@
-alert("hello world");
+
+
+ var queryDogBreed = "https://dog.ceo/api/breed/hound/images"
+
+ $.ajax({
+     url: queryDogBreed,
+     method: "GET"
+ })
+ .then(function(response) {     //store data inside object "response"
+ console.log(response)
+
+ console.log(response.message[0.0]);
+
+ var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
+
+ 
+
+ //var pic = response.message[0.0];
+
+ $("#picture").append(img)
+
+
+});
+
+
+
 
 
 //MVP 
