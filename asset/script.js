@@ -6,12 +6,12 @@ var questionArray = [ //object to store our questions and choices
 
     { 
     question: "Please select your favorite color:",
-    btnChoices: ["Pink Button","Red Button", "Green Button", "Blue Button"],
+    btnChoices: ["Pink", "Red", "Green", "Blue"],
     },
         
     {
     question: "Please select a favorite food:",
-    btnChoices: ["Pizza", "","A collection of data", "A boolean"],
+    btnChoices: ["Pizza", "French Fries","Pasta", "Cheeseburger"],
     },
             
     {
@@ -24,14 +24,14 @@ var questionArray = [ //object to store our questions and choices
     btnChoices: ["Country", "Rock & Roll", "Classical", "Hip Hop"],
     },
         
-]
+];
 
 
 //_____________________________________________________________________________________________
-//AJAX DOG API
+//AJAX DOG
+// Dog API Website : https://dog.ceo/dog-api/
 
-// link to dog API
- var queryDogBreed = "https://dog.ceo/api/breed/hound/images";
+ var queryDogBreed = "https://dog.ceo/api/breed/hound/images"; // link to dog breed API
 
  $.ajax({
      url: queryDogBreed, 
@@ -39,14 +39,40 @@ var questionArray = [ //object to store our questions and choices
  })
  .then(function(response) { 
  
-  console.log(response)
+  console.log(response) //store object to access information in console
 
  var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
 
  $("#picture").append(img)
 
+});
+
+//_____________________________________________________________________________________________
+//AJAX CAT
+// Cat API Website : https://thecatapi.com/
+
+var apiKey = "7f95dde4-58f5-4c1e-98bc-232e911bfe50"
+var queryCat = "https://api.thecatapi.com/v1/images/search'api_key=7f95dde4-58f5-4c1e-98bc-232e911bfe50" ; // link to cat API
+
+$.ajax({
+    url: queryCat, 
+    method: "GET"
+})
+.then(function(response) { 
+
+ console.log(response) //store object to access information in console
+
+ console.log(response[0].url) 
+
+var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
+
+$("#picture").append(img)
 
 });
+
+
+
+
 
 
 
