@@ -1,7 +1,5 @@
 $(document).ready(function() {  
 
-
-
     //_____________________________________________________________________________________________
     //AJAX CAT
     // Cat API Website : https://thecatapi.com/
@@ -17,7 +15,7 @@ $(document).ready(function() {
 
         console.log(response) //store object to access information in console
 
-        $(".btn").on("click", function() {
+        $(".btn").on("click", function() { //on click of cat button function
 
             var randomNum1 = Math.floor(Math.random()* 100) + 1; //random number between 1 and 100
             var randomNum2 = Math.floor(Math.random()* 100) + 1; //random number between 1 and 100
@@ -25,8 +23,8 @@ $(document).ready(function() {
             var imgURL1 = response[randomNum1].url; //grab image url at random number index
             var imgURL2 = response[randomNum2].url; //grab image url at random number index
 
-            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgURL1); //create image tag with attributes
-            var newImg2 = $("<img>").addClass(".img-responsive").attr("src", imgURL2); //create image tag with attributes
+            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgURL1).width(500).height(500); //create image tag with attributes
+            var newImg2 = $("<img>").addClass(".img-responsive").attr("src", imgURL2).width(500).height(500); //create image tag with attributes
 
             $("#img1").empty()
             $("#img1").append(newImg1); //append random image 1
@@ -41,9 +39,9 @@ $(document).ready(function() {
     //_____________________________________________________________________________________________
     //DYNAMIC ELEMENTS
 
-    var h1Tag = $("<h1>").text("Press the button to generate new cat pictures!")
+    var h1Tag = $("<h1>").text("Press the Button for New Cat Pictures!")
 
-    ("header").append(h1Tag)
+    $("header").append(h1Tag)
 
 });
 

@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
 
     <link rel="stylesheet" href="asset/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
     <title>Dog Friendly Denver - Cats</title>
 
@@ -20,15 +19,23 @@
     .col-md-6 {
       max-width: 100%;
       height:auto;
-      /* height:200px;
-      width:auto; */
+      padding-top: 90px;
+   
+    }
+    
+    .img-responsive #img1 #img2 {
+      height: 200px;
+      width:200px;
     }
 
-    .button {
+    .catBtn {
      text-align: center;
-     padding-top:700px;
+     padding-top:20px;
     }
 
+    header {
+      text-align:center;
+    }
 
     </style>
 
@@ -63,21 +70,22 @@
     </div>
   </nav>
     
-    <header>CATS!</header>
+    <header></header>
+
+    <div class="catBtn">
+      <button type="button" class="btn btn-primary btn-lg">I Love Cats <i class='fas fa-cat'></i></button>
+    </div>   
 
     <div class="container">
       <div class="row" >
-          <div class="col-md-6 image-fluid" id="img1" style="width:100%"></div>
-          <div class="col-md-6 image-fluid" id="img2" style="width:100%"></div>   
+          <div class="col-md-6 image-fluid" id="img1"></div>
+          <div class="col-md-6 image-fluid" id="img2"></div>   
       </div>
     </div>
 
-      <div class="button">
-          <button type="button" class="btn btn-primary btn-lg">More Cat Pictures <i class='fas fa-cat'></i></button>
-      </div>    
+       
           
      
-
 
     <script src="asset/scriptCat.js"></script>
 </body>
