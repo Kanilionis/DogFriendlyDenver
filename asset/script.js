@@ -35,7 +35,7 @@ var explinationsArray = [
     "Explination Six Here"
 ]
 
-var questionIndex = 0;
+var Index = 0;
 
 //_____________________________________________________________________________________________
 //AJAX DOG
@@ -80,6 +80,8 @@ $.ajax({
 //present user with main page
 //name of quiz with directions on page with navbar
 
+//_____________________________________________________________________________________________
+//FUNCTIONS
 function startQuiz() { 
     //quiz page will have pictue of cats/dogs
         //prompt user to select which image they like more
@@ -88,28 +90,61 @@ function startQuiz() {
 
 };
 
-// function questionsArray() {
-    // once start button is pressed the start screen will disappear and the user will see first quesiton
-    //$("#testBtn").on("click", function() {
-       
-        var displayQuestion = $("<h3>").append("body");
-        //text(questionsArray[questionIndex].question)
-        //displayQuestion.append("body");
 
-        console.log(displayQuestion);
+//will replace the $(#testBtn) with a parent element of wher we generate the dynamic buttons
+ $("#testBtn").on("click", function() {
 
-        //  for (var i=0; i < questionsArray.length; i++) {
+    var currentQuestion = questionsArray[Index];
+
+    if (currentQuestion === questionsArray.length) { 
+        endQuiz();
+    }
+
+    var displayQuestion = $("#question").text(currentQuestion.question);
+    $("body").append(displayQuestion); //will replace ("body") with HTML tag
+     
+    //console.log(currentQuestion.choices)
+
+    //btns = ["Pink", "Red", "Green", "Blue"],
+    //var currentQuestion = questionsArray[Index];
+    $("#dynamicBtns").empty()
+    currentQuestion.choices.forEach(function(btns) {    
+        var quizBtns = $("<button>").text(btns);
+        console.log(btns)
+   
+        $("#dynamicBtns").append(quizBtns)
+    });  
+        
+
+
+    Index++
+     
+
+}); 
+        
+// var currentQuestion = questionsArray[Index];
+// $("#dynamicBtns").empty()
+// var btns = currentQuestion.choices
+// console.log(btns)
+function renderBtns() {
+
+   
+}    
+renderBtns()    
+
+
         //     var displayQuestion = $("<h2>").text(questionsArray[i])
         //     displayQuestion.append("#h2");
         //     console.log(questionsArray[i]);
 
-        //  }
+    
 
         //user prompted with question 1
         //present user with different buttons with color options
         //user clicks button and moves on to quesion 2
 
-   // });
+   
+   // questions()
     
 
     
@@ -129,6 +164,7 @@ function startQuiz() {
 // };
 
 function endQuiz() {
+
     // quiz is hidden from user and the results are presented on the screen
         //link to API will provide variable information that the user provided if they like cats or dogs more
         //reference the response object to ge the random photo 
