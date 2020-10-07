@@ -46,6 +46,47 @@ var explinationsArray = [
 
 var Index = 0;
 
+
+//_____________________________________________________________________________________________
+//DYNAMIC ELEMENTS
+
+//h1 tag dynamically added 
+var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
+$("body").append(mainTitle);
+
+//introductios tag dynamically added
+var introduction = "Dog Friendly Denver is all about dogs, and cats too! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
+var h2Tag = $("<h2>").text(introduction);
+$("body").append(h2Tag);
+
+//quiz title tag dynaically added
+var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
+$("body").append(quizTitle);
+
+//quiz directions dynamically added
+var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
+var quizDirections = $("<p>").text(quizDirections);
+$("body").append(quizDirections);
+
+//buttons for start of quiz (cat or dog) will need event listeners on each of these?
+var catBtn = $("<button>").text("Cats!");
+var dogBtn = $("<button>").text("Dogs!");
+$("body").append(catBtn).append(dogBtn);
+
+//have a navbar  
+       //quiz page
+       //cat page
+           //button for user to generate stuff below
+           //random cat photos
+           //random fun cat facts   
+       //dog page
+           //button for user to generate stuff below
+           //random dog photos
+           //random fun dog facts   
+       //how you can help page
+           //links to local shelters in Denver  
+
+
 //_____________________________________________________________________________________________
 //AJAX DOG
 // Dog API Website : https://dog.ceo/dog-api/
@@ -64,6 +105,7 @@ var Index = 0;
     // $("#picture").append(img);
 
 });
+
 
 //_____________________________________________________________________________________________
 //AJAX CAT
@@ -84,42 +126,6 @@ $.ajax({
     // $("#picture").append(img);
 
 });
-
-
-
-//_____________________________________________________________________________________________
-//DYNAMIC ELEMENTS
-
-//h1 tag dynamically added 
- var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
- $("body").append(mainTitle);
-
- //introductios tag dynamically added
- var introduction = "Dog Friendly Denver is all about dogs, and cats! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
- var h2Tag = $("<h2>").text(introduction);
-$("body").append(h2Tag);
-
-//quiz title tag dynaically added
-var quizTitle = $("<h2>").text("What Animal Are You?");
-$("body").append(quizTitle);
-
-//quiz directions dynamically added
-var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
-var quizDirections = $("<p>").text(quizDirections);
-$("body").append(quizDirections);
-
- //have a navbar  
-        //quiz page
-        //cat page
-            //button for user to generate stuff below
-            //random cat photos
-            //random fun cat facts   
-        //dog page
-            //button for user to generate stuff below
-            //random dog photos
-            //random fun dog facts   
-        //how you can help page
-            //links to local shelters in Denver            
 
 
 //_____________________________________________________________________________________________
@@ -157,23 +163,6 @@ function startQuiz() {
     Index++
      
 }); 
-        
-    // question 1: Please select your favorite color
-        //present user with different buttons with color options
-        //user clicks button and moves on to quesion 2
-    
-    // question 2: pick a favorite food
-        //present user with different bottons with food options
-        //user clicks button and moves on the quesiton 3
-
-    // question 3: pick your favorite season
-        //present user with different bottons with seasons
-        //user clicks button and moves on the quesiton 4
-        
-    // question 4: pick your favorite type of music  
-        //present user with different types of music 
-        //user clicks button and moves on to the results
-
 
 
 function endQuiz() {
