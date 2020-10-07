@@ -112,11 +112,12 @@ $("body").append(catBtn).append(dogBtn);
 // Cat API Website : https://thecatapi.com/
 
 var apiKey = "7f95dde4-58f5-4c1e-98bc-232e911bfe50"
-var queryCat = "https://api.thecatapi.com/v1/images/search?" + apiKey; // link to cat API
+var queryCat =  'https://api.thecatapi.com/v1/images/search?limit=100' // link to cat API
 
 $.ajax({
     url: queryCat, 
-    method: "GET"   
+    method: "GET",
+    header: "x-api-key: 7f95dde4-58f5-4c1e-98bc-232e911bfe50"   
 })
 .then(function(response) { 
 
@@ -126,7 +127,6 @@ $.ajax({
     // $("#picture").append(img);
 
 });
-
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
