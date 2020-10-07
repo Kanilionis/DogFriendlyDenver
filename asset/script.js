@@ -5,12 +5,12 @@
 var questionsArray = [ //object to store our questionsArray and choices
 
     { 
-    question: "Please select your favorite color:",
+    question: "Please select a color:",
     choices: ["Pink", "Red", "Green", "Blue"],
     },
         
     {
-    question: "Please select a favorite food:",
+    question: "Please select a food item:",
     choices: ["Pizza", "French Fries","Pasta", "Cheeseburger"],
     },
             
@@ -20,10 +20,19 @@ var questionsArray = [ //object to store our questionsArray and choices
     },
             
     {
-    question: "Please select your favorite type of music:",
+    question: "Please select a type of music:",
     choices: ["Country", "Rock & Roll", "Classical", "Hip Hop"],
     },
-        
+
+    {
+    question: "Another Question 5:",
+    choices: ["1", "2", "3", "4"],
+    }, 
+    
+    {
+    question: "Another Question 6:",
+    choices: ["1", "2", "3", "4"],
+    }, 
 ];
 
 var explinationsArray = [
@@ -51,8 +60,8 @@ var Index = 0;
  
     console.log(response) //store object to access information in console
 
-    // var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
-    // $("#picture").append(img);
+    var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
+    $("#picture").append(img);
 
 });
 
@@ -71,8 +80,8 @@ $.ajax({
 
     console.log(response) //store object to access information in console
 
-    // var img = $("<img>").attr("src", response[0].url).append("#picture");
-    // $("#picture").append(img);
+    var img = $("<img>").attr("src", response[0].url).append("#picture");
+    $("#picture").append(img);
 
 });
 
@@ -82,6 +91,7 @@ $.ajax({
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
+
 function startQuiz() { 
     //quiz page will have pictue of cats/dogs
         //prompt user to select which image they like more
@@ -103,10 +113,6 @@ function startQuiz() {
     var displayQuestion = $("#question").text(currentQuestion.question);
     $("body").append(displayQuestion); //will replace ("body") with HTML tag
      
-    //console.log(currentQuestion.choices)
-
-    //btns = ["Pink", "Red", "Green", "Blue"],
-    //var currentQuestion = questionsArray[Index];
     $("#dynamicBtns").empty()
     currentQuestion.choices.forEach(function(btns) {    
         var quizBtns = $("<button>").text(btns);
@@ -115,39 +121,13 @@ function startQuiz() {
         $("#dynamicBtns").append(quizBtns)
     });  
         
-
-
     Index++
      
-
 }); 
         
-// var currentQuestion = questionsArray[Index];
-// $("#dynamicBtns").empty()
-// var btns = currentQuestion.choices
-// console.log(btns)
-function renderBtns() {
-
-   
-}    
-renderBtns()    
-
-
-        //     var displayQuestion = $("<h2>").text(questionsArray[i])
-        //     displayQuestion.append("#h2");
-        //     console.log(questionsArray[i]);
-
-    
-
-        //user prompted with question 1
+    // question 1: Please select your favorite color
         //present user with different buttons with color options
         //user clicks button and moves on to quesion 2
-
-   
-   // questions()
-    
-
-    
     
     // question 2: pick a favorite food
         //present user with different bottons with food options
@@ -161,7 +141,7 @@ renderBtns()
         //present user with different types of music 
         //user clicks button and moves on to the results
 
-// };
+
 
 function endQuiz() {
 
@@ -174,10 +154,8 @@ function endQuiz() {
 
 };
 
-        
-    
-            
-    //have a navbar 
+          
+    //have a navbar  
         //quiz page
         //cat page
             //button for user to generate stuff below
