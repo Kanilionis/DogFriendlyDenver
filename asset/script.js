@@ -63,15 +63,19 @@ $("body").append(h2Tag);
 var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
 $("body").append(quizTitle);
 
+var startScreenDiv = $("<h1>").addClass("start-screen");
+$("body").append(startScreenDiv);
+
 //quiz directions dynamically added
 var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
 var quizDirections = $("<p>").text(quizDirections);
 $("body").append(quizDirections);
 
 //buttons for start of quiz (cat or dog) will need event listeners on each of these?
-var catBtn = $("<button>").text("Cats!");
-var dogBtn = $("<button>").text("Dogs!");
-$("body").append(catBtn).append(dogBtn);
+// var catBtn = $("<button>").text("Cats!");
+// var dogBtn = $("<button>").text("Dogs!");
+// $("body").append(catBtn).append(dogBtn);
+
 
 //have a navbar  
        //quiz page
@@ -131,39 +135,92 @@ $.ajax({
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
+startScreen();
+
+function startScreen(){
+    // h2Tag.addClass("hidden")
+    // quizTitle.addClass("hidden")
+    // quizDirections.addClass("hidden")
+    // catBtn.addClass("hidden")
+    // dogBtn.addClass("hidden")
+    var startBtn = $("<button>");
+    $("body").append(startBtn);
+    startBtn.text("Start Quiz").addClass("start-button").on("click", function(){
+        console.log("click");
+        startQuiz();
+    })
+        
+}
+
+
+var currentQuestion = questionsArray[Index];
+
 
 function startQuiz() { 
-    //quiz page will have pictue of cats/dogs
-        //prompt user to select which image they like more
-        //we will track this answer to decide the outcome of the quiz
-    // button to prompt user to start quiz 
+    h2Tag.addClass("hidden")
+    quizTitle.addClass("hidden")
+    quizDirections.addClass("hidden")
+    // catBtn.addClass("hidden")
+    // dogBtn.addClass("hidden")
+    var startScreen = $("<h1>").addClass("start-screen hidden");
+    var questions = $("<p>").addClass("card hidden");
+    $(mainTitle).append(startScreen, questions);
 
-};
+    $("#start-quiz").on("click", function() {
+
+    
+
+        if (currentQuestion === questionsArray.length) { 
+            endQuiz();
+        }
+    
+        var displayQuestion = $("#question").text(currentQuestion.question);
+        $(".card").append(displayQuestion); //will replace ("body") with HTML tag
+         
+        $("#dynamicBtns").empty()
+        currentQuestion.choices.forEach(function(btns) {    
+            var quizBtns = $("<button>").text(btns);
+            console.log(btns)
+       
+            $("#dynamicBtns").append(quizBtns)
+        });  
+            
+        Index++
+         
+    }); 
+
+// function startQuiz() { 
+//     //quiz page will have pictue of cats/dogs
+//         //prompt user to select which image they like more
+//         //we will track this answer to decide the outcome of the quiz
+//     // button to prompt user to start quiz 
+
+// };
 
 
-//will replace the $(#testBtn) with a parent element of wher we generate the dynamic buttons
- $("#testBtn").on("click", function() {
+// //will replace the $(#testBtn) with a parent element of wher we generate the dynamic buttons
+//  $("#testBtn").on("click", function() {
 
-    var currentQuestion = questionsArray[Index];
+//     var currentQuestion = questionsArray[Index];
 
-    if (currentQuestion === questionsArray.length) { 
-        endQuiz();
-    }
+//     if (currentQuestion === questionsArray.length) { 
+//         endQuiz();
+//     }
 
-    var displayQuestion = $("#question").text(currentQuestion.question);
-    $("#question").append(displayQuestion); //will replace ("body") with HTML tag
+//     var displayQuestion = $("#question").text(currentQuestion.question);
+//     $("#question").append(displayQuestion); //will replace ("body") with HTML tag
      
-    $("#dynamicBtns").empty()
-    currentQuestion.choices.forEach(function(btns) {    
-        var quizBtns = $("<button>").text(btns);
-        console.log(btns)
+//     $("#dynamicBtns").empty()
+//     currentQuestion.choices.forEach(function(btns) {    
+//         var quizBtns = $("<button>").text(btns);
+//         console.log(btns)
    
-        $("#dynamicBtns").append(quizBtns)
-    });  
+//         $("#dynamicBtns").append(quizBtns)
+//     });  
         
-    Index++
+//     Index++
      
-}); 
+// }); 
 
 
 function endQuiz() {
@@ -175,7 +232,7 @@ function endQuiz() {
         //create small set (random array) of funny explinations that the user will see
         //to explain why they are they dog/cat based off of thier choices 
 
-};
+}};
 
           
    
