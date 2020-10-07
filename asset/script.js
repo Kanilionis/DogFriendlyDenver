@@ -60,8 +60,8 @@ var Index = 0;
  
     console.log(response) //store object to access information in console
 
-    var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
-    $("#picture").append(img);
+    // var img = $("<img>").attr("src", response.message[0.0]).append("#picture");
+    // $("#picture").append(img);
 
 });
 
@@ -80,14 +80,47 @@ $.ajax({
 
     console.log(response) //store object to access information in console
 
-    var img = $("<img>").attr("src", response[0].url).append("#picture");
-    $("#picture").append(img);
+    // var img = $("<img>").attr("src", response[0].url).append("#picture");
+    // $("#picture").append(img);
 
 });
 
 
-//present user with main page
-//name of quiz with directions on page with navbar
+
+//_____________________________________________________________________________________________
+//DYNAMIC ELEMENTS
+
+//h1 tag dynamically added 
+ var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
+ $("body").append(mainTitle);
+
+ //introductios tag dynamically added
+ var introduction = "Dog Friendly Denver is all about dogs, and cats! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
+ var h2Tag = $("<h2>").text(introduction);
+$("body").append(h2Tag);
+
+//quiz title tag dynaically added
+var quizTitle = $("<h2>").text("What Animal Are You?");
+$("body").append(quizTitle);
+
+//quiz directions dynamically added
+var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
+var quizDirections = $("<p>").text(quizDirections);
+$("body").append(quizDirections);
+
+ //have a navbar  
+        //quiz page
+        //cat page
+            //button for user to generate stuff below
+            //random cat photos
+            //random fun cat facts   
+        //dog page
+            //button for user to generate stuff below
+            //random dog photos
+            //random fun dog facts   
+        //how you can help page
+            //links to local shelters in Denver            
+
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
@@ -155,15 +188,4 @@ function endQuiz() {
 };
 
           
-    //have a navbar  
-        //quiz page
-        //cat page
-            //button for user to generate stuff below
-            //random cat photos
-            //random fun cat facts   
-        //dog page
-            //button for user to generate stuff below
-            //random dog photos
-            //random fun dog facts   
-        //how you can help page
-            //links to local shelters in Denver            
+   
