@@ -3,7 +3,6 @@
 //GLOBAL VARIABLES
 
 var questionsArray = [ //object to store our questionsArray and choices
-
     { 
     question: "Please select a color:",
     choices: ["Pink", "Red", "Green", "Blue"],
@@ -25,12 +24,12 @@ var questionsArray = [ //object to store our questionsArray and choices
     },
 
     {
-    question: "Another Question 5:",
+    question: ["Choose a sunset picture?"],
     choices: ["1", "2", "3", "4"],
     }, 
     
     {
-    question: "Another Question 6:",
+    question: "Which flower do you like?",
     choices: ["1", "2", "3", "4"],
     }, 
 ];
@@ -54,24 +53,31 @@ var index = 0;
 
 //h1 tag dynamically added 
 var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
-$("#mainTitle").append(mainTitle);
+
+$(".empty-div").append(mainTitle);
+
+
 
 //introductios tag dynamically added
 var introduction = "Dog Friendly Denver is all about dogs, and cats too! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
 var h2Tag = $("<h2>").text(introduction);
-$("#intro").append(h2Tag);
+
+$(".empty-div").append(h2Tag);
+
 
 //quiz title tag dynaically added
 var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
-$("body").append(quizTitle);
+$(".empty-div").append(quizTitle);
 
 var startScreenDiv = $("<h1>").addClass("start-screen");
-$("body").append(startScreenDiv);
+$(".empty-div").append(startScreenDiv);
 
 //quiz directions dynamically added
 var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
 var quizDirections = $("<p>").text(quizDirections);
-$("body").append(quizDirections);
+$(".empty-div").append(quizDirections);
+
+var catDogQuestion = $(".card-group").addClass("hidden");
 
 //buttons for start of quiz (cat or dog) will need event listeners on each of these?
 // var catBtn = $("<button>").text("Cats!");
@@ -148,39 +154,38 @@ $.ajax({
     // catBtn.addClass("hidden")
     // dogBtn.addClass("hidden")
     var startBtn = $("<button>");
-    $("body").append(startBtn);
+    $(".empty-div").append(startBtn);
     startBtn.text("Start Quiz").addClass("start-button").on("click", function(){
         console.log("click");
         startQuiz();
     })
         
-// }
-
 
 
 
 function startQuiz() { 
-    mainTitle.addClass("hidden")
-    h2Tag.addClass("hidden")
-    quizTitle.addClass("hidden")
-    quizDirections.addClass("hidden")
+    // catDogQuestion.removeAttr("class", "hidden");
+    $(".empty-div").addClass("hidden");
     // catBtn.addClass("hidden")
     // dogBtn.addClass("hidden")
-    var startScreen = $("<h1>").addClass("start-screen hidden");
+    // var startScreen = $("<h1>").addClass("start-screen hidden");
     // var questions = $("<p>").addClass("card hidden");
-    $(mainTitle).append(startScreen);
-
+    // $(mainTitle).append(startScreen);
+    
     getQuestion();
-       
-    }; 
+}
+
+
 function getQuestion(){
+    $(".card-group").addClass("hidden");
+    $(".card").removeAttr("class", "hidden");
     $(startBtn).addClass("hidden")
     console.log("next question");
     var cardImgBlock = $(".card-img-top").on("click", function(){
         console.log("we are in the fxn")
-    
     $(".card-body").append(cardImgBlock);
     var currentQuestion = questionsArray[index];
+    currentQuestion.forEach()
     var displayQuestion = $("#question").text(currentQuestion.question);
     // cardImgBlock.forEach()
     $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
@@ -191,9 +196,65 @@ function getQuestion(){
         endQuiz();
     } });
 
+}
+    
+function catOrDog(){
+    $(".card").addClass("hidden");
+    $(startBtn).addClass("hidden");
+    $(".card-group").removeAttr("class", "hidden");
+
+
+    $("#kitten").on("click", function(){
+        console.log("kitten")
+        getQuestion();
+    })
+    var dogImgBlock = $(".dog-image").on("click", endQuiz())
+        console.log("dog")
+    $(".dog-image").append(dogImgBlock);
+
+
+    
+
+    // catImg.on("click", getQuestion())
+    // $(".cat-image").append(catImg);
+    // console.log("cat");
+    // var dogImg = $(".dog-image").on("click", getQuestion());
+    // console.log("dog");
+    // $("card-group").text("Are you a cat person or a dog person?");
+    // $(".cat-image").on("click", getQuestion());
+    // // $(".cat-image").append(catImg);
+    
+    // $(".dog-image").on("click", getQuestion());
+    // $(".card-dog").append(dogImg);
+    // var chooseCat = $(".card-img-top").on("click", function());
+    //     console.log("cat");
+    // var chooseDog = $(".card-img-top").on("click", function());
+    //     console.log("dog");
+    // // catOrDog.on("click", getQuestion());
+    // $(".card-body").append(chooseCat, chooseDog);
+    // if(chooseCat){
+    //     endQuizCat()
+    // } else {
+    //     enQuizDog()
+    // }
+
+}
     
     
-   
+
+
+   function endQuiz() {
+       console.log("the quiz has ended")
+   }
+
+    // quiz is hidden from user and the results are presented on the screen
+        //link to API will provide variable information that the user provided if they like cats or dogs more
+        //reference the response object to ge the random photo 
+        //user will see pictutre and explination of why they are that cat/dog
+        //create small set (random array) of funny explinations that the user will see
+        //to explain why they are they dog/cat based off of thier choices 
+
+
 
 
 
@@ -204,7 +265,7 @@ function getQuestion(){
     //     console.log(btns)
    
     //     $("#dynamicBtns").append(quizBtns)
-    };  
+   
         
 
 // function startQuiz() { 
@@ -241,16 +302,7 @@ function getQuestion(){
 // }); 
 
 
-function endQuiz() {
 
-    // quiz is hidden from user and the results are presented on the screen
-        //link to API will provide variable information that the user provided if they like cats or dogs more
-        //reference the response object to ge the random photo 
-        //user will see pictutre and explination of why they are that cat/dog
-        //create small set (random array) of funny explinations that the user will see
-        //to explain why they are they dog/cat based off of thier choices 
-
-};
 
           
    
