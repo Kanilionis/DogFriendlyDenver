@@ -54,12 +54,12 @@ var index = 0;
 
 //h1 tag dynamically added 
 var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
-$("body").append(mainTitle);
+$("#mainTitle").append(mainTitle);
 
 //introductios tag dynamically added
 var introduction = "Dog Friendly Denver is all about dogs, and cats too! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
 var h2Tag = $("<h2>").text(introduction);
-$("body").append(h2Tag);
+$("#intro").append(h2Tag);
 
 //quiz title tag dynaically added
 var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
