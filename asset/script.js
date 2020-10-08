@@ -44,7 +44,9 @@ var explinationsArray = [
     "Explination Six Here"
 ]
 
-var Index = 0;
+var index = 0;
+
+
 
 
 //_____________________________________________________________________________________________
@@ -63,15 +65,19 @@ $("#intro").append(h2Tag);
 var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
 $("body").append(quizTitle);
 
+var startScreenDiv = $("<h1>").addClass("start-screen");
+$("body").append(startScreenDiv);
+
 //quiz directions dynamically added
 var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
 var quizDirections = $("<p>").text(quizDirections);
 $("body").append(quizDirections);
 
 //buttons for start of quiz (cat or dog) will need event listeners on each of these?
-var catBtn = $("<button>").text("Cats!");
-var dogBtn = $("<button>").text("Dogs!");
-$("body").append(catBtn).append(dogBtn);
+// var catBtn = $("<button>").text("Cats!");
+// var dogBtn = $("<button>").text("Dogs!");
+// $("body").append(catBtn).append(dogBtn);
+
 
 //have a navbar  
        //quiz page
@@ -131,39 +137,108 @@ $.ajax({
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
+// startScreen();
+
+
+
+// function startScreen(){
+    // h2Tag.addClass("hidden")
+    // quizTitle.addClass("hidden")
+    // quizDirections.addClass("hidden")
+    // catBtn.addClass("hidden")
+    // dogBtn.addClass("hidden")
+    var startBtn = $("<button>");
+    $("body").append(startBtn);
+    startBtn.text("Start Quiz").addClass("start-button").on("click", function(){
+        console.log("click");
+        startQuiz();
+    })
+        
+// }
+
+
+
 
 function startQuiz() { 
-    //quiz page will have pictue of cats/dogs
-        //prompt user to select which image they like more
-        //we will track this answer to decide the outcome of the quiz
-    // button to prompt user to start quiz 
+    mainTitle.addClass("hidden")
+    h2Tag.addClass("hidden")
+    quizTitle.addClass("hidden")
+    quizDirections.addClass("hidden")
+    // catBtn.addClass("hidden")
+    // dogBtn.addClass("hidden")
+    var startScreen = $("<h1>").addClass("start-screen hidden");
+    // var questions = $("<p>").addClass("card hidden");
+    $(mainTitle).append(startScreen);
 
-};
-
-
-//will replace the $(#testBtn) with a parent element of wher we generate the dynamic buttons
- $("#testBtn").on("click", function() {
-
-    var currentQuestion = questionsArray[Index];
-
-    if (currentQuestion === questionsArray.length) { 
-        endQuiz();
-    }
-
+    getQuestion();
+       
+    }; 
+function getQuestion(){
+    $(startBtn).addClass("hidden")
+    console.log("next question");
+    var cardImgBlock = $(".card-img-top").on("click", function(){
+        console.log("we are in the fxn")
+    
+    $(".card-body").append(cardImgBlock);
+    var currentQuestion = questionsArray[index];
     var displayQuestion = $("#question").text(currentQuestion.question);
-    $("#question").append(displayQuestion); //will replace ("body") with HTML tag
-     
-    $("#dynamicBtns").empty()
-    currentQuestion.choices.forEach(function(btns) {    
-        var quizBtns = $("<button>").text(btns);
-        console.log(btns)
+    // cardImgBlock.forEach()
+    $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
+    
+    index++;
+    if(index === questionsArray.length){
+        console.log("end quiz");
+        endQuiz();
+    } });
+
+    
+    
    
-        $("#dynamicBtns").append(quizBtns)
-    });  
+
+
+
+
+    // $("#dynamicBtns").empty()
+    // currentQuestion.choices.forEach(function(btns) {    
+    //     var quizBtns = $("<button>").text(btns);
+    //     console.log(btns)
+   
+    //     $("#dynamicBtns").append(quizBtns)
+    };  
         
-    Index++
+
+// function startQuiz() { 
+//     //quiz page will have pictue of cats/dogs
+//         //prompt user to select which image they like more
+//         //we will track this answer to decide the outcome of the quiz
+//     // button to prompt user to start quiz 
+
+// };
+
+
+// //will replace the $(#testBtn) with a parent element of wher we generate the dynamic buttons
+//  $("#testBtn").on("click", function() {
+
+//     var currentQuestion = questionsArray[Index];
+
+//     if (currentQuestion === questionsArray.length) { 
+//         endQuiz();
+//     }
+
+//     var displayQuestion = $("#question").text(currentQuestion.question);
+//     $("#question").append(displayQuestion); //will replace ("body") with HTML tag
      
-}); 
+//     $("#dynamicBtns").empty()
+//     currentQuestion.choices.forEach(function(btns) {    
+//         var quizBtns = $("<button>").text(btns);
+//         console.log(btns)
+   
+//         $("#dynamicBtns").append(quizBtns)
+//     });  
+        
+//     Index++
+     
+// }); 
 
 
 function endQuiz() {

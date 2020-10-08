@@ -11,6 +11,7 @@
     font-size: 30px;
   }
 
+
   body{
     background-image:url("pawprintBG.jpg");
     background-repeat: no-repeat;
@@ -29,3 +30,14 @@
     font-family: 'Knewave', cursive;
     color: firebrick;
   }
+
+  .hidden{
+    display: none
+  }
+  /* .home-pic {
+    background: url("dogquestion.jpg");
+    background-repeat: no-repeat;
+    height: auto;
+    max-width: 100%;
+  } */
+
