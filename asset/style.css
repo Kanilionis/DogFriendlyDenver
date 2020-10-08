@@ -10,3 +10,12 @@
   .navbar-brand{
     font-size: 30px;
   }
+  .hidden{
+    display: none
+  }
+  /* .home-pic {
+    background: url("dogquestion.jpg");
+    background-repeat: no-repeat;
+    height: auto;
+    max-width: 100%;
+  } */
