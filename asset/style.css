@@ -32,7 +32,7 @@ body{
 }
 #mainTitle{
   font-size: 20px;
-  color: chartreuse;
+  color: rgb(41,86,211);
 }
 #intro{
   font-family: 'Knewave', cursive;
@@ -43,26 +43,12 @@ body{
   display: none
 }
 
-
-/* cat page styling */  
+/* dog and cat page styling */  
 .col-md-6{
   max-width: 100%;
   height:auto;
   padding-top: 90px;
 }
-
-.catBtn{
- text-align: center;
- padding-top:20px;
-}
-
-header{
-  font-family: 'Knewave', cursive;
-  color: firebrick;
-  text-align:center;
-}
-
-
 
 .dogBtn{
   text-align: center;
@@ -70,7 +56,15 @@ header{
   padding-bottom: 20px;
 }
 
-header{ 
+.catBtn{
+ text-align: center;
+ padding-top:20px;
+ padding-bottom:20px;
+}
+
+header{
+  font-family: 'Knewave', cursive;
+  color: firebrick;
   text-align:center;
 }
 

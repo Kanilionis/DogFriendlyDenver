@@ -4,6 +4,10 @@ $(document).ready(function() {
     //AJAX CAT
     // Cat API Website : https://thecatapi.com/
 
+    const meowSound = new Audio("asset/audio/meow.wav"); //variable to grab mewo sample from assets
+    $('.btn').click(e => meowSound.play()); //plays dog sample when clicked
+
+
     var queryCat =  'https://api.thecatapi.com/v1/images/search?limit=100' // link to cat API
 
     $.ajax({
