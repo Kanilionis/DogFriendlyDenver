@@ -4,6 +4,10 @@ $(document).ready(function() {
     //AJAX CAT
     // Cat API Website : https://thecatapi.com/
 
+    const meowSound = new Audio("asset/audio/meow.wav"); //variable to grab mewo sample from assets
+    $('.btn').click(e => meowSound.play()); //plays dog sample when clicked
+
+
     var queryCat =  'https://api.thecatapi.com/v1/images/search?limit=100' // link to cat API
 
     $.ajax({
@@ -23,8 +27,8 @@ $(document).ready(function() {
             var imgURL1 = response[randomNum1].url; //grab image url at random number index
             var imgURL2 = response[randomNum2].url; //grab image url at random number index
 
-            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgURL1).width(500).height(500); //create image tag with attributes
-            var newImg2 = $("<img>").addClass(".img-responsive").attr("src", imgURL2).width(500).height(500); //create image tag with attributes
+            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgURL1).width(500).height(500).css("border", "20px solid rgb(41,86,211)").css("box-shadow", "30px 30px lightgray"); //create image tag with attributes
+            var newImg2 = $("<img>").addClass(".img-responsive").attr("src", imgURL2).width(500).height(500).css("border", "20px solid rgb(41,86,211)").css("box-shadow", "30px 30px lightgray"); //create image tag with attributes
 
             $("#img1").empty()
             $("#img1").append(newImg1); //append random image 1
