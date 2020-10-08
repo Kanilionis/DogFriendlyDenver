@@ -1,43 +1,88 @@
+/* navbar styling */
 .paw{
-    padding: 10px;
-    margin: 10px;
-  }
-  .nav-link{
-    padding: 5px;
-    margin: 5px;
+  padding: 10px;
+  margin: 10px;
+}
 
-  }
-  .navbar-brand{
-    font-size: 30px;
-  }
+.nav-link{
+  padding: 5px;
+  margin: 5px;
+}
+
+.navbar-brand{
+  font-size: 30px;
+}
+
+.navbar{
+  background-color: lightgray;
+}
 
 
-  body{
-    background-image:url("pawprintBG.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    font-family: 'Permanent Marker', cursive;
-  }
+/* main body styling */
+body{
+  background-image:url("pawprintBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+}
 
-  .card{
-     margin-left: 20%;
-  }
-  #mainTitle{
-    color: chartreuse;
-  }
-  #intro{
-    font-family: 'Knewave', cursive;
-    color: firebrick;
-  }
+.card{
+   margin-left: 20%;
+}
+#mainTitle{
+  font-size: 20px;
+  color: chartreuse;
+}
+#intro{
+  font-family: 'Knewave', cursive;
+  color: firebrick;
+}
 
-  .hidden{
-    display: none
-  }
-  /* .home-pic {
-    background: url("dogquestion.jpg");
-    background-repeat: no-repeat;
-    height: auto;
-    max-width: 100%;
-  } */
+.hidden{
+  display: none
+}
+
+
+/* cat page styling */  
+.col-md-6{
+  max-width: 100%;
+  height:auto;
+  padding-top: 90px;
+}
+
+.catBtn{
+ text-align: center;
+ padding-top:20px;
+}
+
+header{
+  font-family: 'Knewave', cursive;
+  color: firebrick;
+  text-align:center;
+}
+
+
+
+.dogBtn{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header{ 
+  text-align:center;
+}
+
+  
+
+
+
+/* .home-pic {
+  background: url("dogquestion.jpg");
+  background-repeat: no-repeat;
+  height: auto;
+  max-width: 100%;
+} */
+
 
