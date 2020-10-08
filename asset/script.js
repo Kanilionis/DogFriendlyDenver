@@ -159,7 +159,7 @@ $.ajax({
 
 
 function startQuiz() { 
-    catDogQuestion.removeAttr("class", "hidden");
+    // catDogQuestion.removeAttr("class", "hidden");
     $(".empty-div").addClass("hidden");
     // catBtn.addClass("hidden")
     // dogBtn.addClass("hidden")
@@ -167,9 +167,32 @@ function startQuiz() {
     // var questions = $("<p>").addClass("card hidden");
     // $(mainTitle).append(startScreen);
     
-    catOrDog();
+    getQuestion();
 }
 
+
+function getQuestion(){
+    $(".card-group").addClass("hidden");
+    $(".card").removeAttr("class", "hidden");
+    $(startBtn).addClass("hidden")
+    console.log("next question");
+    var cardImgBlock = $(".card-img-top").on("click", function(){
+        console.log("we are in the fxn")
+    $(".card-body").append(cardImgBlock);
+    var currentQuestion = questionsArray[index];
+    currentQuestion.forEach()
+    var displayQuestion = $("#question").text(currentQuestion.question);
+    // cardImgBlock.forEach()
+    $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
+    
+    index++;
+    if(index === questionsArray.length){
+        console.log("end quiz");
+        endQuiz();
+    } });
+
+}
+    
 function catOrDog(){
     $(".card").addClass("hidden");
     $(startBtn).addClass("hidden");
@@ -180,11 +203,11 @@ function catOrDog(){
         console.log("kitten")
         getQuestion();
     })
-    var dogImgBlock = $(".dog-image").on("click", getQuestion())
+    var dogImgBlock = $(".dog-image").on("click", endQuiz())
         console.log("dog")
     $(".dog-image").append(dogImgBlock);
 
-   
+
     
 
     // catImg.on("click", getQuestion())
@@ -210,33 +233,23 @@ function catOrDog(){
     //     enQuizDog()
     // }
 
-// }
-    
-    
-
-
-function getQuestion(){
-    $(".card-group").addClass("hidden");
-    $(".card").removeAttr("class", "hidden");
-    $(startBtn).addClass("hidden")
-    console.log("next question");
-    var cardImgBlock = $(".card-img-top").on("click", function(){
-        console.log("we are in the fxn")
-    $(".card-body").append(cardImgBlock);
-    var currentQuestion = questionsArray[index];
-    var displayQuestion = $("#question").text(currentQuestion.question);
-    // cardImgBlock.forEach()
-    $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
-    
-    index++;
-    if(index === questionsArray.length){
-        console.log("end quiz");
-        endQuiz();
-    } });
-
 }
     
-   
+    
+
+
+   function endQuiz() {
+       console.log("the quiz has ended")
+   }
+
+    // quiz is hidden from user and the results are presented on the screen
+        //link to API will provide variable information that the user provided if they like cats or dogs more
+        //reference the response object to ge the random photo 
+        //user will see pictutre and explination of why they are that cat/dog
+        //create small set (random array) of funny explinations that the user will see
+        //to explain why they are they dog/cat based off of thier choices 
+
+
 
 
 
@@ -247,7 +260,7 @@ function getQuestion(){
     //     console.log(btns)
    
     //     $("#dynamicBtns").append(quizBtns)
-    };  
+   
         
 
 // function startQuiz() { 
@@ -284,16 +297,7 @@ function getQuestion(){
 // }); 
 
 
-// function endQuiz() {
 
-//     // quiz is hidden from user and the results are presented on the screen
-//         //link to API will provide variable information that the user provided if they like cats or dogs more
-//         //reference the response object to ge the random photo 
-//         //user will see pictutre and explination of why they are that cat/dog
-//         //create small set (random array) of funny explinations that the user will see
-//         //to explain why they are they dog/cat based off of thier choices 
-
-// };
 
           
    
