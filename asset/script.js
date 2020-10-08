@@ -44,7 +44,9 @@ var explinationsArray = [
     "Explination Six Here"
 ]
 
-var Index = 0;
+var index = 0;
+
+
 
 
 //_____________________________________________________________________________________________
@@ -135,9 +137,11 @@ $.ajax({
 
 //_____________________________________________________________________________________________
 //FUNCTIONS
-startScreen();
+// startScreen();
 
-function startScreen(){
+
+
+// function startScreen(){
     // h2Tag.addClass("hidden")
     // quizTitle.addClass("hidden")
     // quizDirections.addClass("hidden")
@@ -150,44 +154,58 @@ function startScreen(){
         startQuiz();
     })
         
-}
+// }
 
 
-var currentQuestion = questionsArray[Index];
 
 
 function startQuiz() { 
+    mainTitle.addClass("hidden")
     h2Tag.addClass("hidden")
     quizTitle.addClass("hidden")
     quizDirections.addClass("hidden")
     // catBtn.addClass("hidden")
     // dogBtn.addClass("hidden")
     var startScreen = $("<h1>").addClass("start-screen hidden");
-    var questions = $("<p>").addClass("card hidden");
-    $(mainTitle).append(startScreen, questions);
+    // var questions = $("<p>").addClass("card hidden");
+    $(mainTitle).append(startScreen);
 
-    $("#start-quiz").on("click", function() {
-
-    
-
-        if (currentQuestion === questionsArray.length) { 
-            endQuiz();
-        }
-    
-        var displayQuestion = $("#question").text(currentQuestion.question);
-        $(".card").append(displayQuestion); //will replace ("body") with HTML tag
-         
-        $("#dynamicBtns").empty()
-        currentQuestion.choices.forEach(function(btns) {    
-            var quizBtns = $("<button>").text(btns);
-            console.log(btns)
+    getQuestion();
        
-            $("#dynamicBtns").append(quizBtns)
-        });  
-            
-        Index++
-         
-    }); 
+    }; 
+function getQuestion(){
+    $(startBtn).addClass("hidden")
+    console.log("next question");
+    var cardImgBlock = $(".card-img-top").on("click", function(){
+        console.log("we are in the fxn")
+    
+    $(".card-body").append(cardImgBlock);
+    var currentQuestion = questionsArray[index];
+    var displayQuestion = $("#question").text(currentQuestion.question);
+    // cardImgBlock.forEach()
+    $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
+    
+    index++;
+    if(index === questionsArray.length){
+        console.log("end quiz");
+        endQuiz();
+    } });
+
+    
+    
+   
+
+
+
+
+    // $("#dynamicBtns").empty()
+    // currentQuestion.choices.forEach(function(btns) {    
+    //     var quizBtns = $("<button>").text(btns);
+    //     console.log(btns)
+   
+    //     $("#dynamicBtns").append(quizBtns)
+    };  
+        
 
 // function startQuiz() { 
 //     //quiz page will have pictue of cats/dogs
@@ -232,7 +250,7 @@ function endQuiz() {
         //create small set (random array) of funny explinations that the user will see
         //to explain why they are they dog/cat based off of thier choices 
 
-}};
+};
 
           
    
