@@ -6,32 +6,31 @@ var questionsArray = [ //object to store our questionsArray and choices
 
     { 
     question: "Please select a color:",
-    choices: ["Pink", "Red", "Green", "Blue"],
+    image: "/questionPics/question1.png" ,
     },
         
     {
     question: "Please select a food item:",
-    choices: ["Pizza", "French Fries","Pasta", "Cheeseburger"],
+    image: "/questionPics/questio2.png",
     },
             
     {
     question: "Please select your favorite time of year:",
-    choices: ["Summer", "Fall", "Winter", "Spring"],
+    image:"/questionPics/question3.png",
     },
             
     {
     question: "Please select a type of music:",
-    choices: ["Country", "Rock & Roll", "Classical", "Hip Hop"],
+    image:"/questionPics/question4.png",
     },
 
     {
-    question: "Another Question 5:",
-    choices: ["1", "2", "3", "4"],
-    }, 
-    
+    question: "Please select a type of flower:",
+    image:"/questionPics/question5.png",
+    },
     {
-    question: "Another Question 6:",
-    choices: ["1", "2", "3", "4"],
+    question: "Please select a sunset", 
+    image: "/questionPics/question6.png",
     }, 
 ];
 
@@ -182,8 +181,10 @@ function getQuestion(){
     $(".card-body").append(cardImgBlock);
     var currentQuestion = questionsArray[index];
     var displayQuestion = $("#question").text(currentQuestion.question);
-    // cardImgBlock.forEach()
+    //question image
+    var qImg = $("<img>").attr("src".currentQuetion.image)
     $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
+    $(".card-img-top").append(qImg); //replace dog img with question img
     
     index++;
     if(index === questionsArray.length){
