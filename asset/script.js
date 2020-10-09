@@ -5,44 +5,35 @@ $(document).ready(function(){
     var questionsArray = [ //object to store our questionsArray and choices
         { 
         question: "Please select a color:",
-        image: "/questionPics/question1.png" ,
+        image: "asset/questionPics/question 1.png",
         },
             
         {
         question: "Please select a food item:",
-        image: "/questionPics/questio2.png",
+        image: "asset/questionPics/question2.png",
         },
                 
         {
         question: "Please select your favorite time of year:",
-        image:"/questionPics/question3.png",
+        image: "asset/questionPics/question3.png",
         },
                 
         {
         question: "Please select a type of music:",
-        image:"/questionPics/question4.png",
+        image: "asset/questionPics/question4.png",
         },
 
         {
-
         question: "Please select a type of flower:",
-        image:"/questionPics/question5.png",
+        image: "asset/questionPics/question5.png",
         },
         {
         question: "Please select a sunset", 
-        image: "/questionPics/question6.png",
+        image: "asset/questionPics/question6.png",
+        },
+    ];   
 
-        question: ["Choose a sunset picture?"],
-        choices: ["1", "2", "3", "4"],
-        }, 
-        
-        {
-        question: "Which flower do you like?",
-        choices: ["1", "2", "3", "4"],
-
-        }, 
-    ];
-
+    
     var explanationsArray = [
         "You are SUPER loyal, extra furry, and very snuggly! You're the one anyone can turn to for advice and comfort. Keep being a good friend!",
 
@@ -94,7 +85,7 @@ $(document).ready(function(){
     
     var startBtn = $("<button>");
     $(".empty-div").append(startBtn);
-    startBtn.text("Start Quiz").addClass("start-button").on("click", function(){
+    startBtn.text("Take Our Quiz!").addClass("start-button").on("click", function(){
         console.log("click");
         getQuestion();
     })
@@ -105,10 +96,21 @@ $(document).ready(function(){
         $(".card-group").addClass("hidden");
         $(".main-card").removeAttr("class", "hidden");
         $(startBtn).addClass("hidden");
+
         var cardImgBlock = $(".card-img-top").on("click", function(){
-                console.log("we are in the fxn");
+
+            console.log("we are in the fxn");
             $(".card-body").append(cardImgBlock);
             var currentQuestion = questionsArray[index];
+
+            var image = questionsArray[index].image;
+            // console.log(image)
+
+            //var testImage = "https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+
+           // var questionImage = $("<img>").attr("src", testImage);
+
+            $(".card-img-top").attr("src", image);
 
             $("#question").text(currentQuestion.question);
             // cardImgBlock.forEach()
