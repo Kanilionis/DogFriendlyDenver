@@ -34,13 +34,18 @@ var questionsArray = [ //object to store our questionsArray and choices
     }, 
 ];
 
-var explinationsArray = [
-    "Explination One Here",
-    "Explination Two Here",
-    "Explination Three Here",
-    "Explination Four Here",
-    "Explination Five Here",
-    "Explination Six Here"
+var explanationsArray = [
+    "You are SUPER loyal, extra furry, and very snuggly! You're the one anyone can turn to for advice and comfort. Keep being a good friend!",
+
+    "You are the PERFECT pet! You are a people pleaser that listens well and loves to make (or eat) treats. We like to call you 'The Hostess with the Mostess.",
+
+    "Yikes!! Watch out for the licks! You're the type that doesn't know your boundaries. Are you a stage 5 clinger?? Check yo-self, before you wreck yo-self (and your relationships).",
+
+    "Wow, you LOVE to sleep! Do you have a plush mattress, sleep mask, lavender pillow spray, and a full closet of sweats? Put a TV and a refrigerator in your bedroom because you are never leaving!",
+
+    "'I'm readyyyyyy to partyyyyyyyyyyy' is what you say on a regular basis. You're the life of the party and always down for an adventure. Hashtag FOMO? You're the president of that club.",
+
+    "Well, you're a sassy one, aren't you? Fickle...is that a better word? You change your mind so often, you give your friends whiplash! Let's keep it calm and 'be cool Honey Bunny'!"
 ]
 
 var index = 0;
@@ -72,7 +77,6 @@ var quizDirections = "Take our exciting quiz to find out what kind of cat or dog
 var quizDirections = $("<p>").text(quizDirections);
 $(".empty-div").append(quizDirections);
 
-var catDogQuestion = $(".card-group").addClass("hidden");
 
 //buttons for start of quiz (cat or dog) will need event listeners on each of these?
 // var catBtn = $("<button>").text("Cats!");
@@ -152,62 +156,77 @@ $.ajax({
     $(".empty-div").append(startBtn);
     startBtn.text("Start Quiz").addClass("start-button").on("click", function(){
         console.log("click");
-        startQuiz();
+        getQuestion();
     })
         
 
 
 
-function startQuiz() { 
-    // catDogQuestion.removeAttr("class", "hidden");
-    $(".empty-div").addClass("hidden");
-    // catBtn.addClass("hidden")
-    // dogBtn.addClass("hidden")
-    // var startScreen = $("<h1>").addClass("start-screen hidden");
-    // var questions = $("<p>").addClass("card hidden");
-    // $(mainTitle).append(startScreen);
+// function startQuiz() { 
+//     $(".card-img-top").addClass("hidden");
+//     getQuestion();
+// }
+//     function startQuiz() { 
+//         // catDogQuestion.removeAttr("class", "hidden");
+//         //$(".empty-div").addClass("hidden");
+//         $(".card-img-top").remove();
+//         // catBtn.addClass("hidden")
+//         // dogBtn.addClass("hidden")
+//         // var startScreen = $("<h1>").addClass("start-screen hidden");
+//         // var questions = $("<p>").addClass("card hidden");
+//         // $(mainTitle).append(startScreen);
+//         getQuestion();
+
+//     // catDogQuestion.removeAttr("class", "hidden");
+//     $(".empty-div").addClass("hidden");
+//     // catBtn.addClass("hidden")
+//     // dogBtn.addClass("hidden")
+//     // var startScreen = $("<h1>").addClass("start-screen hidden");
+//     // var questions = $("<p>").addClass("card hidden");
+//     // $(mainTitle).append(startScreen);
     
-    getQuestion();
-}
+//     getQuestion();
+
 
 
 function getQuestion(){
+    $(".empty-div").addClass("hidden");
     $(".card-group").addClass("hidden");
-    $(".card").removeAttr("class", "hidden");
-    $(startBtn).addClass("hidden")
-    console.log("next question");
+    $(".main-card").removeAttr("class", "hidden");
+    $(startBtn).addClass("hidden");
     var cardImgBlock = $(".card-img-top").on("click", function(){
-        console.log("we are in the fxn")
+        console.log("we are in the fxn");
     $(".card-body").append(cardImgBlock);
     var currentQuestion = questionsArray[index];
-    currentQuestion.forEach()
-    var displayQuestion = $("#question").text(currentQuestion.question);
+    $("#question").text(currentQuestion.question);
     // cardImgBlock.forEach()
-    $(".card-text").append(displayQuestion); //will replace ("body") with HTML tag
+    $(".card-text").append(currentQuestion); //will replace ("body") with HTML tag
     
+
     index++;
     if(index === questionsArray.length){
         console.log("end quiz");
-        endQuiz();
-    } });
-
-}
+        catOrDog();
+    } }
+    )
     
 function catOrDog(){
-    $(".card").addClass("hidden");
+    $(".card-img-top").addClass("hidden");
+    $(".card-body").addClass("hidden");
     $(startBtn).addClass("hidden");
     $(".card-group").removeAttr("class", "hidden");
 
 
     $("#kitten").on("click", function(){
         console.log("kitten")
-        getQuestion();
+        endQuiz();
+    });
+    $("#puppy").on("click", function(){
+        console.log("puppy")
+        endQuiz();
     })
-    var dogImgBlock = $(".dog-image").on("click", endQuiz())
-        console.log("dog")
-    $(".dog-image").append(dogImgBlock);
 
-
+}
     
 
     // catImg.on("click", getQuestion())
@@ -233,14 +252,26 @@ function catOrDog(){
     //     enQuizDog()
     // }
 
-}
+
     
     
 
 
    function endQuiz() {
-       console.log("the quiz has ended")
-   }
+       // generate random number between 1 and 6
+       // apply that number to choose from the array of explanations (index position will be random# -1)
+       // post explanation and random image from dog/cat API on final page
+       // add links to other pages on site
+       $(".quiz-end").removeAttr("class", "hidden");
+        var random = Math.floor(Math.random() * 6) + 1;
+        var quizExplanation = explanationsArray[random-1];
+        console.log(quizExplanation);
+        $(".quiz-end-text").append(quizExplanation);
+        $(".card-group").remove();
+
+        // ... and then dump the random number into our random-number div.
+        // $("#random-number").text(random);
+   }}
 
     // quiz is hidden from user and the results are presented on the screen
         //link to API will provide variable information that the user provided if they like cats or dogs more
