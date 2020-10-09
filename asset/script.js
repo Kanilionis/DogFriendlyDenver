@@ -5,25 +5,33 @@
 var questionsArray = [ //object to store our questionsArray and choices
     { 
     question: "Please select a color:",
-    choices: ["Pink", "Red", "Green", "Blue"],
+    image: "/questionPics/question1.png" ,
     },
         
     {
     question: "Please select a food item:",
-    choices: ["Pizza", "French Fries","Pasta", "Cheeseburger"],
+    image: "/questionPics/questio2.png",
     },
             
     {
     question: "Please select your favorite time of year:",
-    choices: ["Summer", "Fall", "Winter", "Spring"],
+    image:"/questionPics/question3.png",
     },
             
     {
     question: "Please select a type of music:",
-    choices: ["Country", "Rock & Roll", "Classical", "Hip Hop"],
+    image:"/questionPics/question4.png",
     },
 
     {
+
+    question: "Please select a type of flower:",
+    image:"/questionPics/question5.png",
+    },
+    {
+    question: "Please select a sunset", 
+    image: "/questionPics/question6.png",
+
     question: ["Choose a sunset picture?"],
     choices: ["1", "2", "3", "4"],
     }, 
@@ -31,6 +39,7 @@ var questionsArray = [ //object to store our questionsArray and choices
     {
     question: "Which flower do you like?",
     choices: ["1", "2", "3", "4"],
+
     }, 
 ];
 
@@ -203,9 +212,11 @@ function getQuestion(){
         console.log("we are in the fxn");
     $(".card-body").append(cardImgBlock);
     var currentQuestion = questionsArray[index];
+
     $("#question").text(currentQuestion.question);
     // cardImgBlock.forEach()
     $(".card-text").append(currentQuestion); //will replace ("body") with HTML tag
+
     
 
     index++;
