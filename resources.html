@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Knewave&family=Permanent+Marker&display=swap"
     rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
 
-    <link rel="stylesheet" href="asset/style.css" />
 
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+  <link rel="stylesheet" href="style.css" />
+ 
 
-    <title>Dog Friendly Denver - Resources</title>
+  <script src="resource.js"></script>
+ 
+
+  <title>Adopt</title>
 </head>
+
 <body>
+
+   
+ >
+
   <nav class="navbar navbar-expand-lg navbar-light">
     <img class="paw" src="asset/paw_icon.png" height="auto" width="10%"></img>
     <a class="navbar-brand" href="#">Dog Friendly Denver</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        
+
         <li class="nav-item active">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -41,16 +58,57 @@
         <li class="nav-item">
           <a class="nav-link" href="resources.html">Pet Resources</a>
         </li>
-        
+
       </ul>
     </div>
   </nav>
+  <h2>Search for your new pal!</h2>
+</header>
+
+<section class="container">
+  
+<form class="pet-form">
+ <!-- <img src = "catDog.png" alt = "dog and kitten" width="100" height="100" margin-right="10px">-->
+  <div class="form-group">
+    <label for="petSearch">Select Type of Pet</label>
+    <br />
+    <select id="petSearch" class="form-control">
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="small-furry">Small and Furry</option>
     
-    <header>HOW CAN YOU HELP?</header>
-    
-    <div id="picture"></div>
+    </select>
 
 
-    <!--<script src="asset/script.js"></script>-->
+
+    <br />
+    <label for="zip">Enter Zip Code</label>
+    <br />
+    <input type="text" id="zip" class="form-control" required />
+    <br />
+    <br />
+    <label for="zip">Breed</label>
+    <input type="text" id="breed" class="form-control"/>
+    <br />
+    <input id = "pet-search" type="submit" value="Search" class="btn-Search" />
+  </div>
+</form>
+<div id="results">
+  <ul>
+    
+
+  </ul>
+</div>
+</section>
+
+
+
+<footer>
+    <p>&copy; Copyright 2020 Dog Friendly Denver</p> <!--footer of the page I want anchored at the bottom-->
+  </footer>
+    <!--<script src="asset/resource.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="resource.js"></script>
+    <script src="token.js"></script>
 </body>
 </html>
