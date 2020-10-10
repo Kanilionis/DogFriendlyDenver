@@ -37,7 +37,7 @@ $(document).ready(function(){
     var explanationsArray = [
         "You are SUPER loyal, extra furry, and very snuggly! You're the one anyone can turn to for advice and comfort. Keep being a good friend!",
 
-        "You are the PERFECT pet! You are a people pleaser that listens well and loves to make (or eat) treats. We like to call you 'The Hostess with the Mostess.",
+        "You are the PERFECT pet! You are a people pleaser that listens well and loves to make (or eat) treats. We like to call you 'The Host(ess) with the Most(ess).'",
 
         "Yikes!! Watch out for the licks! You're the type that doesn't know your boundaries. Are you a stage 5 clinger?? Check yo-self, before you wreck yo-self (and your relationships).",
 
@@ -56,35 +56,36 @@ $(document).ready(function(){
     //DYNAMIC ELEMENTS
 
     //h1 tag dynamically added 
-    var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!");
+    var mainTitle = $("<h1>").text("Welcome to Dog Friendly Denver!").css("font-size", "70px");
 
     $(".empty-div").append(mainTitle);
 
     //introductios tag dynamically added
-    var introduction = "Dog Friendly Denver is all about dogs, and cats too! Our goal is to help link people in the Denver area to local animal shelters. Take our fun and interactive quiz to find out what type of animal you are! Visit the all-about cats or all-about dogs pages to see endless cute animal photos! We hope you have fun, and remember adoption saves lives!";
-    var h2Tag = $("<h2>").text(introduction);
+    var introduction = "Dog Friendly Denver is all about dogs, and cats too! Our goal is to help link people in the Denver area to find their forever friend! Visit the Dog Pictures or Cat Pictures pages to see endless cute animal photos!"
+    var h2Tag = $("<h2>").text(introduction).css("font-size", "20px");
+    var adoption = $("<h2>").text("We hope you have fun, and remember adoption saves lives!").css("color", "firebrick").css("font-size", "40px");
 
-    $(".empty-div").append(h2Tag);
+    $(".empty-div").append(h2Tag, adoption);
 
 
     //quiz title tag dynaically added
-    var quizTitle = $("<h2>").text("Quiz: What Type of Animal Are You?");
-    $(".empty-div").append(quizTitle);
+    var quizTitle = $("<h2>").text("What Type of Animal Are You?");
+    $(".quiz-location").append(quizTitle);
 
-    var startScreenDiv = $("<h1>").addClass("start-screen");
-    $(".empty-div").append(startScreenDiv);
+    // var startScreenDiv = $("<h1>").addClass("start-screen");
+    // $(".empty-div").append(startScreenDiv);
 
     //quiz directions dynamically added
-    var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
-    var quizDirections = $("<p>").text(quizDirections);
-    $(".empty-div").append(quizDirections);
+    // var quizDirections = "Take our exciting quiz to find out what kind of cat or dog you are! Just simply start by selecting an animal below. Don't forget to visit our link to animal adoption shelters near you when you are finished!"
+    // var quizDirections = $("<p>").text(quizDirections);
+    // $(".empty-div").append(quizDirections);
 
   
     //_____________________________________________________________________________________________
     //FUNCTIONS
     
     var startBtn = $("<button>");
-    $(".empty-div").append(startBtn);
+    $(".quiz-location").append(startBtn);
     startBtn.text("Take Our Quiz!").addClass("start-button").on("click", function(){
         console.log("click");
         getQuestion();
@@ -92,12 +93,13 @@ $(document).ready(function(){
     
 
     function getQuestion(){
+        $(".quiz-location").addClass("hidden");
         $(".empty-div").addClass("hidden");
         $(".card-group").addClass("hidden");
         $(".main-card").removeAttr("class", "hidden");
         $(startBtn).addClass("hidden");
 
-        var cardImgBlock = $(".card-img-top").on("click", function(){
+        var cardImgBlock = $(".quiz-pic").on("click", function(){
 
             console.log("we are in the fxn");
             $(".card-body").append(cardImgBlock);
@@ -110,7 +112,8 @@ $(document).ready(function(){
 
            // var questionImage = $("<img>").attr("src", testImage);
 
-            $(".card-img-top").attr("src", image);
+            $(".quiz-pic").attr("src", image);
+            
 
             $("#question").text(currentQuestion.question);
             // cardImgBlock.forEach()
@@ -125,7 +128,7 @@ $(document).ready(function(){
     )};
         
     function catOrDog(){
-        $(".card-img-top").addClass("hidden");
+        $(".quiz-pic").addClass("hidden");
         $(".card-body").addClass("hidden");
         $(startBtn).addClass("hidden");
         $(".card-group").removeAttr("class", "hidden");
@@ -148,6 +151,8 @@ $(document).ready(function(){
         //AJAX DOG
         // Dog API Website : https://dog.ceo/dog-api/
 
+        // var queryDogBreed = "https://dog.ceo/api/breed/mix/images";
+        
         var queryDogBreed = "https://dog.ceo/api/breed/hound/images"; // link to dog breed API
 
         $.ajax({
@@ -162,12 +167,12 @@ $(document).ready(function(){
             var quizExplanation = explanationsArray[random-1];
             console.log(quizExplanation);
             var showQuizExplination = $("<h2>").text(quizExplanation);
-            $("body").append(showQuizExplination);
+            $(".quiz-end-dog").append(showQuizExplination);
 
             $(".card-cat").addClass("hidden");
             $(".card-dog").addClass("hidden");
             catDogQuestion.addClass("hidden");
-            $(".quiz-end").removeAttr("class","hidden");
+            $(".quiz-end-dog").removeAttr("class","hidden");
 
             var randomNum = Math.floor(Math.random() * 100) + 1;
             var imgDog = response.message[randomNum]; //grab image url at random number index
@@ -201,19 +206,19 @@ $(document).ready(function(){
             var quizExplanation = explanationsArray[random-1];
             console.log(quizExplanation);
             var showQuizExplination = $("<h2>").text(quizExplanation);
-            $("body").append(showQuizExplination);
+            $(".quiz-end-cat").append(showQuizExplination);
 
             $(".card-cat").addClass("hidden");
             $(".card-dog").addClass("hidden");
             catDogQuestion.addClass("hidden");
-            $(".quiz-end").removeAttr("class","hidden");
+            $(".quiz-end-cat").removeAttr("class","hidden");
 
             var randomNum = Math.floor(Math.random() * 100) + 1;
             var imgCat = response[randomNum].url; //grab image url at random number index
             console.log(imgCat)
         
             //create image tag with attributes
-            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgCat).width(500).height(500); 
+            var newImg1 = $("<img>").addClass(".img-responsive").attr("src", imgCat).width(500); 
 
             $("#imgCat").empty()
             $("#imgCat").append(newImg1); //append random image 1

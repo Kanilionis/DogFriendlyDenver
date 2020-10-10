@@ -35,13 +35,13 @@ body{
   font-family: 'Permanent Marker', cursive;
 }
 
-.card{
+/* .card{
    margin-left: 20%;
-}
-#mainTitle{
+} */
+/* #mainTitle{
   font-size: 20px;
   color: rgb(41,86,211);
-}
+} */
 #intro{
   font-family: 'Knewave', cursive;
   color: firebrick;
@@ -58,7 +58,7 @@ body{
   padding-top: 90px;
   
 } */
-
+/* 
 .dogBtn{
   font-family: 'Permanent Marker', cursive;
   text-align: center;
@@ -70,7 +70,7 @@ body{
  text-align: center;
  padding-top:20px;
  padding-bottom:20px;
-}
+} */
 
 header{
   font-family: 'Knewave', cursive;
@@ -78,7 +78,38 @@ header{
   text-align:center;
 }
 
-  
+.empty-div{
+  border: 1px solid black;
+  background-color: white;
+  margin: 40px;
+}  
+
+.quiz-location{
+  border: 1px solid black;
+  margin-left: 350px;
+  margin-right: 350px;
+  padding: 7px;
+  background: lightsalmon;
+}
+
+#quiz-card{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#quiz-end-cat {
+  border: 8px solid lightsalmon;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: white;
+}
+
+#quiz-end-dog {
+  border: 8px solid lightsalmon;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: white;
+}
 
 
 
