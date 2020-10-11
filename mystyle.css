@@ -193,16 +193,6 @@ li {
 }
 
 
-footer {
-  position: fixed;
-  margin: auto;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(90, 88, 90);
-  color: white;
-  text-align: center;
-}
 #dogCard {
   background-color: #AFEEEE;
 }
