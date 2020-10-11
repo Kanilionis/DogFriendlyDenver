@@ -53,16 +53,16 @@ function showAnimals(responseJson) {
 
 $("#results ul").html("");
 for (let i = 0; i < responseJson.animals.length; i++) {
-  for(let p=0; p<responseJson.animals[i].photos.length; p++) {
+  //for(let p=0; p<responseJson.animals[i].photos.length; p++) {
   $("#results ul").append(`<li id="dogCard">
    <h3>${responseJson.animals[i].name}</h3>   
-   <img src="${responseJson.animals[i].photos[p].medium}" alt="adopt me" class="petImg" max-width: 90%>
+   <img src="${responseJson.animals[i].photos.primary_photo_cropped.medium}" alt="adopt me" class="petImg" max-width: 90%>
    <p>${responseJson.animals[i].breeds.primary}<p>
    <p>${responseJson.animals[i].age} ${responseJson.animals[i].gender}<p>
    <a href="${responseJson.animals[i].url}" class="petLink" target="_blank">Visit me on Petfinder!</a>
    </li>`)
 }
-}
+
 
 
 //displays API errors in app
