@@ -295,3 +295,13 @@ footer {
 #dogCard {
   background-color: #AFEEEE;
 }
+
+.polaroid{
+  height: 150px;
+  width: auto;
+}
+
+.little{
+  height: 150px;
+  width: 100PX
+}
