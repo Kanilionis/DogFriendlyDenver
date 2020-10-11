@@ -6,7 +6,7 @@
 function fetchAnimals(animal, zip, breed) {
   console.log(token);
   fetch(
-    `https://api.petfinder.com/v2/animals?type=${animal}&breed=${breed}&location=${zip}&status=adoptable&distance=25&limit=50`,
+    `https://api.petfinder.com/v2/animals?type=${animal}&breed=${breed}&location=${zip}&status=adoptable&distance=25&limit=20`,
     {
       headers: {
         Authorization: `Bearer ${token.access_token}`
@@ -45,7 +45,7 @@ function showAnimals(responseJson) {
   //displays data in the HTML//
 // $.ajax({
 //   method: "GET",
-//   url:`https://api.petfinder.com/v2/animals?type=${animal}&breed=${breed}&location=${zip}&status=adoptable&distance=25&limit=50`
+//   url:`https://api.petfinder.com/v2/animals?type=${animal}&breed=${breed}&location=${zip}&status=adoptable&distance=25&limit=`
 
 // }).then(function(response) {
 //   console.log(response);
@@ -55,17 +55,17 @@ function showAnimals(responseJson) {
 $("#results ul").html("");
   
   for (let i = 0; i < responseJson.animals.length; i++) {
-    for(let p=0; p<responseJson.animals[i].photos.length; p++) {
+   // for(let p=0; p<responseJson.animals[i].primary_photo_cropped.length; p++) {
     $("#results ul").append(`<li id="dogCard">
      <h3>${responseJson.animals[i].name}</h3>   
-     <img src="${responseJson.animals[i].photos[p].medium}" alt="adopt me" class="petImg" max-width: 90%>
+     <img src="${responseJson.animals[i].primary_photo_cropped.medium}" alt="adopt me" class="petImg" max-width: 90%>
      <p>${responseJson.animals[i].breeds.primary}<p>
      <p>${responseJson.animals[i].age} ${responseJson.animals[i].gender}<p>
      <a href="${responseJson.animals[i].url}" class="petLink" target="_blank">Visit me on Petfinder!</a>
      
      </li>`)
   }
-}
+
 
 //displays API errors in app
    function showError(message) {
