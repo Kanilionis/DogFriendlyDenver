@@ -1,5 +1,4 @@
-
-
+"use strict";
 
 //retrieves token for authorization and sends fetch request with user input//
 
@@ -52,13 +51,17 @@ function showAnimals(responseJson) {
 // fetchAnimals(animal, zip, breed);
 
 
-$("#results ul").html("");
+ $("#results ul").html("");
   
   for (let i = 0; i < responseJson.animals.length; i++) {
    // for(let p=0; p<responseJson.animals[i].primary_photo_cropped.length; p++) {
     $("#results ul").append(`<li id="dogCard">
      <h3>${responseJson.animals[i].name}</h3>   
+
      <img src="${responseJson.animals[i].primary_photo_cropped.medium}" alt="adopt me" class="petImg" max-width: 90%>
+
+     
+
      <p>${responseJson.animals[i].breeds.primary}<p>
      <p>${responseJson.animals[i].age} ${responseJson.animals[i].gender}<p>
      <a href="${responseJson.animals[i].url}" class="petLink" target="_blank">Visit me on Petfinder!</a>
@@ -68,8 +71,8 @@ $("#results ul").html("");
 
 
 //displays API errors in app
-   function showError(message) {
-   $("#results ul").html("");
+ function showError(message) {
+  $("#results ul").html("");
    $("#results ul").append(`<li>${message}</li>`);
    console.log(message);
 }
