@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="asset/style.css" />
 
 
-  <title>Document</title>
+  <title>Dog Friendly Denver</title>
   
 </head>
 
@@ -51,20 +51,49 @@
       </ul>
     </div>
   </nav>
+<div class="container" id="quiz-card">
+<div class="row">
+  <div class="main-card hidden" style="width: 60%;">
+    <img class="card-img-top quiz-pic" src="asset/dogquestion.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h3 id="question"></h3>
+      <p class="card-text"></p>
+      <div id="dynamicBtns"></div>
+    </div>
+  </div>
+</div>
+</div>
 
 <div class="empty-div"></div>
-  <div id="picture"></div>
-  <div id="cat"></div>
+  <br>
+  <br>
+  <img class= "polaroid empty-div" src="asset/petPics/jcat1.jpg">
+  <img class= "polaroid empty-div" src="asset/petPics/adog.jpg">
+  <img class= "polaroid empty-div" src="asset/petPics/bcat.png">
+  
+  <img class= "polaroid empty-div" src="asset/petPics/jcat2.jpg">
+  <img class= "polaroid empty-div" src="asset/petPics/kdog.jpg">
+  <img class= "polaroid little empty-div" src="asset/petPics/dcat.png">
+  <br>
+  <br>
+<div class="quiz-location"></div>
+<img class= "polaroid empty-div" src="asset/petPics/tfish.jpg">
+
+
+  <!-- <div id="picture"></div>
+  <div id="cat"></div> -->
   <!-- <button id="testBtn">Test Start Button</button> -->
+  <!-- <br>
   <br>
-  <br>
-  <!-- <div id="dynamicBtns"></div> -->
-  <br>
-  <br>
+  <div id="dynamicBtns"></div> -->
+  <!-- <br>
+  <br> -->
   <!-- <h3 id="question"></h3> -->
   <div class="card-group hidden container">
     <h3>Are you a cat person or a dog person?</h3>
     <div class="row">
+      <div class="col-md-3"></div>
     <div class="card-cat col-md-3">
       <img id="kitten" class="cat-image" src="asset/catImg.png" alt="catimg">
       <div>
@@ -75,7 +104,6 @@
     </div>
     <div class="card-dog col-md-3">
       <img id="puppy" class="dog-image" src="asset/dogImg.png" alt="dogimg">
-
       <div >
         <h5 class="dog-card-title"></h5>
         <p></p>
@@ -85,7 +113,7 @@
   </div>
   </div>
 
-  <div class="quiz-end hidden">
+  <div id="quiz-end-cat" class="quiz-end-cat hidden">
     <img src="">
     <div id="imgCat"></div>
         <h5 class="quiz-end-text"></h5>
@@ -93,7 +121,7 @@
         <p></p>
       </div>
     </div>
-    <div class="quiz-end hidden">
+    <div id="quiz-end-dog" class="quiz-end-dog hidden">
       <img src="">
       <div id="imgDog"></div>
           <h5 class="quiz-end-text"></h5>
@@ -104,14 +132,7 @@
 
 
 
-  <div class="main-card hidden" style="width: 60%;">
-    
-    <img class="card-img-top" src="asset/dogquestion.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"></h5>
-      <h3 id="question"></h3>
-      <p class="card-text"></p>
-      <div id="dynamicBtns"></div>
+  
       <!-- <div class="btn1 btn-primary"></div>
 
   
@@ -125,8 +146,7 @@
 
 
       <div class="btn2 btn-primary"></div> -->
-      </div>
-    </div>
+    
   </div>
   <br>
   <!-- <button id="testBtn">Test Start Button</button> -->
